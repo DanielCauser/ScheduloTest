@@ -1,11 +1,39 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
              x:Class="ScheduloTestResolution.App">
 	<Application.Resources>
+        <ResourceDictionary>
+            <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="#007EE5" />
+            </Style>
+            
+            <Style TargetType="NavigationPage" ApplyToDerivedTypes="True">
+                <Setter Property="BarBackgroundColor" Value="#007EE5"/>
+            </Style>
+            
+            <Style TargetType="Button" x:Key="ButtonBase">
+                <Setter Property="TextColor" Value="White" />
+            </Style>
 
-		<!-- Application resource dictionary -->
-
+            <Style TargetType="Button" 
+                   x:Key="GreenButton"
+                   BasedOn="{StaticResource ButtonBase}">
+                <Setter Property="BackgroundColor" Value="#19CF5E" />
+            </Style>
+            
+            <Style TargetType="Button" 
+                   x:Key="RedButton"
+                   BasedOn="{StaticResource ButtonBase}">
+                <Setter Property="BackgroundColor" Value="#D91D00" />
+            </Style>
+            
+            <Style TargetType="Button" 
+                   x:Key="GrayButton"
+                   BasedOn="{StaticResource ButtonBase}">
+                <Setter Property="BackgroundColor" Value="#B4C3D5" />
+            </Style>
+        </ResourceDictionary>
 	</Application.Resources>
 </prism:PrismApplication>

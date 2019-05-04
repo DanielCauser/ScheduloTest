@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <local:ViewMainMenuXaml xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ScheduloTestResolution.Views.ViewMainMenu"
-             xmlns:local="clr-namespace:ScheduloTestResolution.Views"
-             Title="{Binding Title}">
-
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Welcome to Xamarin Forms and Prism!" />
+                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        x:Class="ScheduloTestResolution.Views.ViewMainMenu"
+                        xmlns:local="clr-namespace:ScheduloTestResolution.Views"
+                        Title="Main Menu">
+    <StackLayout HorizontalOptions="CenterAndExpand" 
+                 VerticalOptions="CenterAndExpand">
+        <Image />
         
-        <Button Text="Global Exception Handle"
-                Command="{Binding ThrowExceptionCommand}"/>
+        <Label Text="{Binding Greeting}"/>
+        
+        <Button Text="Show Image" 
+                Style="{x:StaticResource GreenButton}"/>
+        
+        <Button Text="Connectivity"
+                Style="{x:StaticResource RedButton}"/>
+        
+        <Button Text="Forum" 
+                Style="{x:StaticResource GrayButton}"/>
     </StackLayout>
-
 </local:ViewMainMenuXaml>
