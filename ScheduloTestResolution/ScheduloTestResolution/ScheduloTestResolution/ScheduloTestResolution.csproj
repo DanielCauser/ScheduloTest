@@ -9,6 +9,12 @@
     <PackageReference Include="Prism.Unity.Forms" Version="7.1.0.431" />
     <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.7.944" />
+    <PackageReference Include="ReactiveUI" Version="9.13.1" />
+    <PackageReference Include="ReactiveUI.Fody" Version="9.13.1" />
+    <PackageReference Include="Acr.UserDialogs" Version="7.0.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Infrastructure\" />
+  </ItemGroup>
 </Project>

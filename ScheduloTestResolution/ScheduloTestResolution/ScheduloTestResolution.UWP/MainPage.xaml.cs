@@ -22,7 +22,7 @@ namespace ScheduloTestResolution.UWP
         public MainPage()
         {
             this.InitializeComponent();
-
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();                   
             LoadApplication(new ScheduloTestResolution.App(new UwpInitializer()));
         }
     }

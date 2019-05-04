@@ -4,6 +4,11 @@ using ScheduloTestResolution.ViewModels;
 using ScheduloTestResolution.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Acr.UserDialogs;
+using Xamarin.Essentials;
+using ScheduloTestResolution.Infrastructure;
+using Unity;
+using Unity.Lifetime;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace ScheduloTestResolution
@@ -30,6 +35,15 @@ namespace ScheduloTestResolution
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+        }
+
+        protected override IContainerExtension CreateContainerExtension()
+        {
+            var builder = new UnityContainer();
+            builder.RegisterInstance(UserDialogs.Instance);
+            builder.RegisterInstance(Connectivity.NetworkAccess);
+            builder.RegisterType<GlobalExceptionHandler>();
+            return new Prism.Unity.UnityContainerExtension(builder);
         }
     }
 }
