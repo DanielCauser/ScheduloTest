@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<local:ViewConnectivityXaml Title="Connectivity" x:Class="XamarinTest.ViewConnectivity" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:XamarinTest;assembly=XamarinTest">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Start" Orientation="Horizontal" Padding="10">
+            <Label HorizontalOptions="FillAndExpand" FontSize="16" Text="Connection Status:" VerticalTextAlignment="Center" />
+            <Label HorizontalOptions="End" FontSize="10" Text="Show Connection Status Here" VerticalTextAlignment="Center" />
+        </StackLayout>
+    </ContentPage.Content>
+</local:ViewConnectivityXaml>

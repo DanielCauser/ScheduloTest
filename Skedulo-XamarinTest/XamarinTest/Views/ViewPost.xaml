@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<local:ViewPostXaml x:Class="XamarinTest.ViewPost" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:XamarinTest;assembly=XamarinTest" Title="Post">
+    <ContentPage.Content>
+        <StackLayout Padding="10" Spacing="20">
+            <Label FontSize="16" Text="Post Title Here" />
+            <Label FontSize="12" Text="Post Body Here" />
+        </StackLayout>
+    </ContentPage.Content>
+</local:ViewPostXaml>
