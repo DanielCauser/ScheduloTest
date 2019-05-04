@@ -9,6 +9,7 @@ using Xamarin.Essentials;
 using ScheduloTestResolution.Infrastructure;
 using Unity;
 using Unity.Lifetime;
+using ReactiveUI;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace ScheduloTestResolution
@@ -42,7 +43,9 @@ namespace ScheduloTestResolution
             var builder = new UnityContainer();
             builder.RegisterInstance(UserDialogs.Instance);
             builder.RegisterInstance(Connectivity.NetworkAccess);
-            builder.RegisterType<GlobalExceptionHandler>();
+
+            RxApp.DefaultExceptionHandler = new GlobalExceptionHandler(builder.Resolve<IUserDialogs>());
+
             return new Prism.Unity.UnityContainerExtension(builder);
         }
     }
