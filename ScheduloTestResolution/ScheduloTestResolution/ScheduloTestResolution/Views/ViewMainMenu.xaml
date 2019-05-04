@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<local:ViewMainMenuXaml xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ScheduloTestResolution.Views.MainPage"
+             x:Class="ScheduloTestResolution.Views.ViewMainMenu"
+             xmlns:local="clr-namespace:ScheduloTestResolution.Views"
              Title="{Binding Title}">
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
@@ -11,4 +12,4 @@
                 Command="{Binding ThrowExceptionCommand}"/>
     </StackLayout>
 
-</ContentPage>
+</local:ViewMainMenuXaml>

@@ -10,9 +10,9 @@ using System.Windows.Input;
 
 namespace ScheduloTestResolution.ViewModels
 {
-    public class MainPageViewModel : ViewModelBase
+    public class ViewModelMainPage : ViewModelBase
     {
-        public MainPageViewModel(INavigationService navigationService)
+        public ViewModelMainPage(INavigationService navigationService)
         {
             this.ThrowExceptionCommand = ReactiveCommand.Create(() => throw new Exception());
         }

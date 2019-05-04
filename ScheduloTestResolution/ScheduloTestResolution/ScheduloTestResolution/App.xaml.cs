@@ -29,13 +29,17 @@ namespace ScheduloTestResolution
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("NavigationPage/ViewMainMenu");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<ViewMainMenu, ViewModelMainPage>();
+            containerRegistry.RegisterForNavigation<ViewConnectivity, ViewModelConnectivity>();
+            containerRegistry.RegisterForNavigation<ViewForum, ViewModelForum>();
+            containerRegistry.RegisterForNavigation<ViewPost, ViewModelPost>();
+            containerRegistry.RegisterForNavigation<ViewShowImage, ViewModelShowImage>();
         }
 
         protected override IContainerExtension CreateContainerExtension()
@@ -43,9 +47,8 @@ namespace ScheduloTestResolution
             var builder = new UnityContainer();
             builder.RegisterInstance(UserDialogs.Instance);
             builder.RegisterInstance(Connectivity.NetworkAccess);
-
+            builder.RegisterType<IServiceForum, ServiceForum>();
             RxApp.DefaultExceptionHandler = new GlobalExceptionHandler(builder.Resolve<IUserDialogs>());
-
             return new Prism.Unity.UnityContainerExtension(builder);
         }
     }
