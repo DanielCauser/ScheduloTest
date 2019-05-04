@@ -4,5 +4,9 @@
              x:Class="ScheduloTestResolution.Views.ViewShowImage"
              xmlns:local="clr-namespace:ScheduloTestResolution.Views">
     <ContentPage.Content>
+        <StackLayout>
+            <Image HorizontalOptions="Center" VerticalOptions="FillAndExpand" Source="{Binding ImageUrl}" />
+            <Button VerticalOptions="End" BackgroundColor="#19CF5E" Command="{Binding CommandNewImage}" Text="Load Another Image" TextColor="#FFFFFF" Margin="20" />
+        </StackLayout>
     </ContentPage.Content>
 </local:ViewShowImageXaml>

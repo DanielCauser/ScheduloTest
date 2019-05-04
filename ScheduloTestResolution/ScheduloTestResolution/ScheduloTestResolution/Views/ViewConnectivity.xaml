@@ -4,5 +4,9 @@
        x:Class="ScheduloTestResolution.Views.ViewConnectivity"
        xmlns:local="clr-namespace:ScheduloTestResolution.Views">
     <ContentPage.Content>
+         <StackLayout VerticalOptions="Start" Orientation="Horizontal" Padding="10">
+            <Label HorizontalOptions="FillAndExpand" FontSize="16" Text="Connection Status:" VerticalTextAlignment="Center" />
+            <Label HorizontalOptions="End" FontSize="10" Text="Show Connection Status Here" VerticalTextAlignment="Center" />
+        </StackLayout>
     </ContentPage.Content>
 </local:ViewConnectivityXaml>
