@@ -46,7 +46,6 @@ namespace ScheduloTestResolution
         {
             var builder = new UnityContainer();
             builder.RegisterInstance(UserDialogs.Instance);
-            builder.RegisterInstance(Connectivity.NetworkAccess);
             builder.RegisterType<IServiceForum, ServiceForum>();
             RxApp.DefaultExceptionHandler = new GlobalExceptionHandler(builder.Resolve<IUserDialogs>());
             return new Prism.Unity.UnityContainerExtension(builder);
