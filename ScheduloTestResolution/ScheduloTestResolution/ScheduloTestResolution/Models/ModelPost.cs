@@ -3,13 +3,15 @@ namespace ScheduloTestResolution
 {
 	public class ModelPost
 	{
-		public ModelPost(string title, string body, int userId, int id)
+        private static int LastPostId;
+
+		public ModelPost(string title, string body, int userId)
 		{
 			Title = title;
 			Body = body;
 			UserId = userId;
-			Id = id;
-		}
+            Id = LastPostId++;
+        }
 
 		public string Title { get; set; }
 		public string Body { get; set; }
