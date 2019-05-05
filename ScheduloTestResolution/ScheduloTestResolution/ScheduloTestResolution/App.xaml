@@ -6,8 +6,20 @@
 	<Application.Resources>
         <ResourceDictionary>
             <Style TargetType="NavigationPage" ApplyToDerivedTypes="True">
-                <Setter Property="BarBackgroundColor" Value="#007EE5"/>
-                <Setter Property="BarTextColor" Value="White"/>
+                <Setter Property="BarBackgroundColor"> 
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Color" 
+                                    Android="#007EE5"
+                                    iOS="#0C667A" />
+                    </Setter.Value>
+                </Setter> 
+                <Setter Property="BarTextColor"> 
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Color" 
+                                    Android="White"
+                                    iOS="#FFFFFF" />
+                    </Setter.Value>
+                </Setter> 
             </Style>
             
             <Style TargetType="ContentPage" 
