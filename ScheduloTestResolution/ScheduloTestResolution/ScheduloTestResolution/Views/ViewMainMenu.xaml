@@ -4,19 +4,46 @@
                         x:Class="ScheduloTestResolution.Views.ViewMainMenu"
                         xmlns:local="clr-namespace:ScheduloTestResolution.Views"
                         Title="Main Menu">
-    <StackLayout HorizontalOptions="CenterAndExpand" 
-                 VerticalOptions="CenterAndExpand">
-        <Image />
-        
-        <Label Text="{Binding Greeting}"/>
-        
-        <Button Text="Show Image" 
-                Style="{x:StaticResource GreenButton}"/>
-        
-        <Button Text="Connectivity"
-                Style="{x:StaticResource RedButton}"/>
-        
-        <Button Text="Forum" 
-                Style="{x:StaticResource GrayButton}"/>
-    </StackLayout>
+    <ScrollView>
+        <Grid VerticalOptions="CenterAndExpand">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <Image Grid.Row="0" 
+                   Source="skedulo"
+                   VerticalOptions="Start"
+                   HorizontalOptions="FillAndExpand"
+                   Margin="0,0,0,80"/>
+            
+            <Label Grid.Row="1" 
+                   Text="{Binding Greeting}"
+                   FontSize="30"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="FillAndExpand"/>
+            
+            <Button Grid.Row="2" 
+                    Text="Show Image" 
+                    Style="{x:StaticResource GreenButton}"
+                    Command="{Binding ImageViewViewCommand}"/>
+            
+            <Button Grid.Row="3" 
+                    Text="Connectivity"
+                    Style="{x:StaticResource RedButton}"
+                    Command="{Binding ConnectivityViewCommand}"/>
+            
+            <Button Grid.Row="4" 
+                    Text="Forum" 
+                    Style="{x:StaticResource GrayButton}"
+                    Command="{Binding ForumViewCommand}"/>
+        </Grid>
+    </ScrollView>
 </local:ViewMainMenuXaml>
