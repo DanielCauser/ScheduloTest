@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local:ViewForumXaml xmlns="http://xamarin.com/schemas/2014/forms" 
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     x:Class="ScheduloTestResolution.Views.ViewForum"
+                     xmlns:local="clr-namespace:ScheduloTestResolution.Views"
+                     xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+                     Title="Forum">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Margin="10" 
+                   Placeholder="Type to filter..."
+                   Text="{Binding SearchText}"/>
+            <ListView Margin="10" 
+                      HasUnevenRows="true" 
+                      ItemsSource="{Binding Posts}" 
+                      SelectedItem="{Binding SelectedItem}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Spacing="10">
+                                <Label FontSize="12" Text="{Binding Title}" />
+                                <Label FontSize="10" Text="{Binding Body}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Behaviors>
+                    <b:EventToCommandBehavior EventName="ItemTapped" 
+                                              Command="{Binding ItemTappedCommand}"
+                                              EventArgsParameterPath="Item" />
+                </ListView.Behaviors>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</local:ViewForumXaml>

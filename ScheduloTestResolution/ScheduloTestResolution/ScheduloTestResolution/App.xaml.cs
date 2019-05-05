@@ -4,6 +4,13 @@ using ScheduloTestResolution.ViewModels;
 using ScheduloTestResolution.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Acr.UserDialogs;
+using Xamarin.Essentials;
+using ScheduloTestResolution.Infrastructure;
+using Unity;
+using Unity.Lifetime;
+using ReactiveUI;
+using ScheduloTestResolution.Services;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace ScheduloTestResolution
@@ -23,13 +30,30 @@ namespace ScheduloTestResolution
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("NavigationPage/ViewMainMenu");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<ViewMainMenu, ViewModelMainPage>();
+            containerRegistry.RegisterForNavigation<ViewConnectivity, ViewModelConnectivity>();
+            containerRegistry.RegisterForNavigation<ViewForum, ViewModelForum>();
+            containerRegistry.RegisterForNavigation<ViewPost, ViewModelPost>();
+            containerRegistry.RegisterForNavigation<ViewShowImage, ViewModelShowImage>();
+        }
+
+        protected override IContainerExtension CreateContainerExtension()
+        {
+            var builder = new UnityContainer();
+
+            builder.RegisterSingleton<IServiceForum, ServiceForum>();
+            builder.RegisterSingleton<IServiceUser, ServiceUser>();
+
+            builder.RegisterInstance(UserDialogs.Instance);
+            RxApp.DefaultExceptionHandler = new GlobalExceptionHandler(builder.Resolve<IUserDialogs>());
+
+            return new Prism.Unity.UnityContainerExtension(builder);
         }
     }
 }

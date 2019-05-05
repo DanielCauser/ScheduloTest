@@ -7,9 +7,10 @@ using Xamarin.Forms;
 
 namespace ScheduloTestResolution.Views
 {
-    public partial class MainPage : ContentPage
+    public class ViewMainMenuXaml : BaseContentPage { }
+    public partial class ViewMainMenu : ViewMainMenuXaml
     {
-        public MainPage()
+        public ViewMainMenu()
         {
             InitializeComponent();
         }
