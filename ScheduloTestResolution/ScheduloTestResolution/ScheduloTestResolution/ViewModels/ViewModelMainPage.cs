@@ -1,15 +1,8 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
+﻿using System;
+using System.Windows.Input;
 using Prism.Navigation;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Input;
-using System.Reactive.Linq;
-using Xamarin.Forms;
 
 namespace ScheduloTestResolution.ViewModels
 {

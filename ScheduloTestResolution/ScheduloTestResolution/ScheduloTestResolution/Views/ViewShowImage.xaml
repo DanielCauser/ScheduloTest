@@ -1,12 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <local:ViewShowImageXaml xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="ScheduloTestResolution.Views.ViewShowImage"
-             xmlns:local="clr-namespace:ScheduloTestResolution.Views">
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                         x:Class="ScheduloTestResolution.Views.ViewShowImage"
+                         xmlns:local="clr-namespace:ScheduloTestResolution.Views"
+                         xmlns:custom="clr-namespace:ScheduloTestResolution.Controls;assembly=ScheduloTestResolution">
     <ContentPage.Content>
         <StackLayout>
-            <Image HorizontalOptions="Center" VerticalOptions="FillAndExpand" Source="{Binding ImageUrl}" />
-            <Button VerticalOptions="End" BackgroundColor="#19CF5E" Command="{Binding CommandNewImage}" Text="Load Another Image" TextColor="#FFFFFF" Margin="20" />
+            <custom:CachedImageCustomControl x:Name="ImageView"
+                                             HorizontalOptions="Center"
+                                             VerticalOptions="FillAndExpand"
+                                             DownsampleToViewSize="true"
+                                             IsOpaque="true"
+                                             CacheDuration="90"
+                                             FadeAnimationForCachedImages="true"
+                                             FadeAnimationEnabled="true"
+                                             Source="{Binding ImageUrl}"/>
+
+            <ActivityIndicator IsVisible="{Binding Source={x:Reference ImageView}, Path=IsLoading}"
+                               IsRunning="True"
+                               VerticalOptions="FillAndExpand" 
+                               HorizontalOptions="Center"
+                               Color="White"/>
+
+            <Label Text="An error occured Downloading the picture"
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="Center"
+                   FontSize="Large"
+                   TextColor="Red"
+                   IsVisible="{Binding Source={x:Reference ImageView}, Path=IsFailed}"/>
+            
+            <Button VerticalOptions="End" 
+                    BackgroundColor="#19CF5E" 
+                    Command="{Binding CommandNewImage}" 
+                    Text="Load Another Image" 
+                    TextColor="#FFFFFF" 
+                    Margin="20" />
         </StackLayout>
     </ContentPage.Content>
 </local:ViewShowImageXaml>
