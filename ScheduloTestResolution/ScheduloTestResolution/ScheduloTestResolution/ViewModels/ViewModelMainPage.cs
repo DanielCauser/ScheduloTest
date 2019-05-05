@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using System.Reactive.Linq;
+using Xamarin.Forms;
 
 namespace ScheduloTestResolution.ViewModels
 {
@@ -19,6 +20,7 @@ namespace ScheduloTestResolution.ViewModels
         public ICommand ImageViewViewCommand { get; }
         public ICommand ConnectivityViewCommand { get; }
         public ICommand ForumViewCommand { get; }
+        public ICommand SetGreetingsCommand { get; }
 
         [Reactive] public string Greeting { get; set; }
 
@@ -26,7 +28,7 @@ namespace ScheduloTestResolution.ViewModels
         {
             this._navigationService = navigationService;
 
-            this.ImageViewViewCommand = ReactiveCommand.CreateFromTask(async () => 
+            this.ImageViewViewCommand = ReactiveCommand.CreateFromTask(async () =>
                 await _navigationService.Navigate("ViewShowImage"));
 
             this.ConnectivityViewCommand = ReactiveCommand.CreateFromTask(async () =>
@@ -34,26 +36,26 @@ namespace ScheduloTestResolution.ViewModels
 
             this.ForumViewCommand = ReactiveCommand.CreateFromTask(async () =>
                 await _navigationService.NavigateAsync("ViewForum"));
-        }
 
-        public override void OnNavigatedTo(INavigationParameters parameters)
-        {
-            SetGreetingText();
-        }
-
-        private void SetGreetingText()
-        {
-            if (DateTime.Now.Hour >= 0 && DateTime.Now.Hour <= 10)
-                Greeting = "Good morning!";
-            else if (DateTime.Now.Hour > 10 && DateTime.Now.Hour <= 14)
+            this.SetGreetingsCommand = ReactiveCommand.Create(() =>
             {
-                string[] Titles = { "Hello!", "Hi!", "Hey!" };
-                Greeting = Titles[new Random().Next(0, Titles.Length)];
-            }
-            else if (DateTime.Now.Hour > 14 && DateTime.Now.Hour <= 16)
-                Greeting = "Good afternoon!";
-            else if (DateTime.Now.Hour >= 18 && DateTime.Now.Hour <= 23)
-                Greeting = "Good evening!";
+                if (DateTime.Now.Hour >= 0 && DateTime.Now.Hour <= 10)
+                    Greeting = "Good morning!";
+                else if (DateTime.Now.Hour > 10 && DateTime.Now.Hour <= 14)
+                {
+                    string[] Titles = { "Hello!", "Hi!", "Hey!" };
+                    Greeting = Titles[new Random().Next(0, Titles.Length)];
+                }
+                else if (DateTime.Now.Hour > 14 && DateTime.Now.Hour <= 16)
+                    Greeting = "Good afternoon!";
+                else if (DateTime.Now.Hour >= 18 && DateTime.Now.Hour <= 23)
+                    Greeting = "Good evening!";
+            });
+        }
+
+        public override void OnNavigatingTo(INavigationParameters parameters)
+        {
+            SetGreetingsCommand.Execute(null);
         }
     }
 }
