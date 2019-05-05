@@ -32,7 +32,7 @@ namespace ScheduloTestResolution.ViewModels
             this.ItemTappedCommand = ReactiveCommand.CreateFromTask<ModelPost>(async selectedItem =>
             {
                 var navigationParams = new NavigationParameters();
-                navigationParams.Add(nameof(ModelPost), selectedItem);
+                navigationParams.Add($"{nameof(ModelPost)}Id", selectedItem.Id);
                 await _navigationService.NavigateAsync("ViewPost", navigationParams);
             });
 

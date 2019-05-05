@@ -12,10 +12,6 @@ namespace ScheduloTestResolution.ViewModels
 {
     public class ViewModelConnectivity : ViewModelBase
     {
-        [Reactive] public string ConnectionStatus { get; set; }
-
-        public ICommand ConnectionChangeCommand { get; }
-
         public ViewModelConnectivity()
         {
             ConnectionChangeCommand = ReactiveCommand.Create<NetworkAccess>(status =>
@@ -42,5 +38,9 @@ namespace ScheduloTestResolution.ViewModels
         {
             Connectivity.ConnectivityChanged -= OnConnectivityChanged;
         }
+
+        [Reactive] public string ConnectionStatus { get; set; }
+
+        public ICommand ConnectionChangeCommand { get; }
     }
 }

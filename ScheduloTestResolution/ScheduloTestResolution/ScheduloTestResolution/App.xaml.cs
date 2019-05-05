@@ -10,6 +10,7 @@ using ScheduloTestResolution.Infrastructure;
 using Unity;
 using Unity.Lifetime;
 using ReactiveUI;
+using ScheduloTestResolution.Services;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace ScheduloTestResolution
@@ -45,9 +46,13 @@ namespace ScheduloTestResolution
         protected override IContainerExtension CreateContainerExtension()
         {
             var builder = new UnityContainer();
+
+            builder.RegisterSingleton<IServiceForum, ServiceForum>();
+            builder.RegisterSingleton<IServiceUser, ServiceUser>();
+
             builder.RegisterInstance(UserDialogs.Instance);
-            builder.RegisterType<IServiceForum, ServiceForum>();
             RxApp.DefaultExceptionHandler = new GlobalExceptionHandler(builder.Resolve<IUserDialogs>());
+
             return new Prism.Unity.UnityContainerExtension(builder);
         }
     }

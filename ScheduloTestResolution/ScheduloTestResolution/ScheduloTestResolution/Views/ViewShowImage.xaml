@@ -3,7 +3,8 @@
                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
                          x:Class="ScheduloTestResolution.Views.ViewShowImage"
                          xmlns:local="clr-namespace:ScheduloTestResolution.Views"
-                         xmlns:custom="clr-namespace:ScheduloTestResolution.Controls;assembly=ScheduloTestResolution">
+                         xmlns:custom="clr-namespace:ScheduloTestResolution.Controls;assembly=ScheduloTestResolution"
+                         Title="Show Image">
     <ContentPage.Content>
         <StackLayout>
             <custom:CachedImageCustomControl x:Name="ImageView"

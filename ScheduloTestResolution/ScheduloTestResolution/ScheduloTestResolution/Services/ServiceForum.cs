@@ -8,7 +8,6 @@ namespace ScheduloTestResolution
     public class ServiceForum : IServiceForum
     {
         List<ModelPost> _posts = new List<ModelPost>();
-        List<int> ids = new List<int>() { 1, 2, 3, 4, 5, 6 };
 
         public ServiceForum()
         {
@@ -18,6 +17,11 @@ namespace ScheduloTestResolution
             _posts.Add(new ModelPost("Aut quo modi neque nostrum ducimus", "Voluptatem quisquam iste\nvoluptatibus natus officiis facilis dolorem\nquis quas ipsam\nvel et voluptatum in aliquid", 1));
             _posts.Add(new ModelPost("sit asperiores ipsam eveniet odio non quia", "totam corporis dignissimos\nvitae dolorem ut occaecati accusamus\nex velit deserunt\net exercitationem vero incidunt corrupti mollitia", 1));
             _posts.Add(new ModelPost("sed ab est est", "At pariatur consequuntur earum quidem\nquo est laudantium soluta voluptatem\nqui ullam et est\net cum voluptas voluptatum repellat est", 1));
+        }
+
+        public ModelPost GetById(int id)
+        {
+            return _posts.Single(x => x.Id == id);
         }
 
         public IEnumerable<ModelPost> GetMatchingPosts(string search)

@@ -10,13 +10,6 @@ namespace ScheduloTestResolution.ViewModels
     {
         private readonly INavigationService _navigationService;
 
-        public ICommand ImageViewViewCommand { get; }
-        public ICommand ConnectivityViewCommand { get; }
-        public ICommand ForumViewCommand { get; }
-        public ICommand SetGreetingsCommand { get; }
-
-        [Reactive] public string Greeting { get; set; }
-
         public ViewModelMainPage(INavigationService navigationService)
         {
             this._navigationService = navigationService;
@@ -50,5 +43,12 @@ namespace ScheduloTestResolution.ViewModels
         {
             SetGreetingsCommand.Execute(null);
         }
+
+        public ICommand ImageViewViewCommand { get; }
+        public ICommand ConnectivityViewCommand { get; }
+        public ICommand ForumViewCommand { get; }
+        public ICommand SetGreetingsCommand { get; }
+
+        [Reactive] public string Greeting { get; set; }
     }
 }

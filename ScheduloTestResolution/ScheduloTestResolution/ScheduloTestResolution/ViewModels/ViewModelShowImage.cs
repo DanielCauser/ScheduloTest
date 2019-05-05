@@ -11,9 +11,6 @@ namespace ScheduloTestResolution.ViewModels
     {
         private string FileName => $"{new Random().Next(100000)}.jpg";
 
-        [Reactive] public string ImageUrl { get; set; }
-        public ICommand CommandNewImage { get; }
-
         public ViewModelShowImage()
         {
             this.CommandNewImage = ReactiveCommand.Create(() =>
@@ -26,5 +23,8 @@ namespace ScheduloTestResolution.ViewModels
         {
             CommandNewImage.Execute(null);
         }
+
+        [Reactive] public string ImageUrl { get; set; }
+        public ICommand CommandNewImage { get; }
     }
 }
