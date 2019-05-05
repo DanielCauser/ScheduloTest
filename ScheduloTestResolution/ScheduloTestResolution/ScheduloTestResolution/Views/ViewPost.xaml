@@ -5,8 +5,8 @@
        xmlns:local="clr-namespace:ScheduloTestResolution.Views">
     <ContentPage.Content>
         <StackLayout Padding="10" Spacing="20">
-            <Label FontSize="16" Text="Post Title Here" />
-            <Label FontSize="12" Text="Post Body Here" />
+            <Label FontSize="16" Text="{Binding SelectedPost.Title}" />
+            <Label FontSize="12" Text="{Binding SelectedPost.Body}" />
         </StackLayout>
     </ContentPage.Content>
 </local:ViewPostXaml>

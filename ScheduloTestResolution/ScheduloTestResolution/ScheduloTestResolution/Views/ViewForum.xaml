@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <local:ViewForumXaml xmlns="http://xamarin.com/schemas/2014/forms" 
-       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-       x:Class="ScheduloTestResolution.Views.ViewForum"
-       xmlns:local="clr-namespace:ScheduloTestResolution.Views">
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     x:Class="ScheduloTestResolution.Views.ViewForum"
+                     xmlns:local="clr-namespace:ScheduloTestResolution.Views"
+                     xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms">
     <ContentPage.Content>
         <StackLayout>
             <Entry Margin="10" 
@@ -22,9 +23,12 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+                <ListView.Behaviors>
+                    <b:EventToCommandBehavior EventName="ItemTapped" 
+                                              Command="{Binding ItemTappedCommand}"
+                                              EventArgsParameterPath="Item" />
+                </ListView.Behaviors>
             </ListView>
-            
-            
         </StackLayout>
     </ContentPage.Content>
 </local:ViewForumXaml>
