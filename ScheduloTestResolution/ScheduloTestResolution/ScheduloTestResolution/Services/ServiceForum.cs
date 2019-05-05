@@ -22,7 +22,16 @@ namespace ScheduloTestResolution
         public IEnumerable<ModelPost> GetMatchingPosts(string search)
         {
             // TODO: Return those matching the search, but all if the search is empty
-            return _posts;
+            if (string.IsNullOrWhiteSpace(search))
+                return _posts;
+
+            return _posts.Where(x => x.Title
+                                      .ToLower()
+                                      .Contains(search.ToLower())
+                                      ||
+                                     x.Body
+                                      .ToLower()
+                                      .Contains(search.ToLower()));
         }
     }
 }

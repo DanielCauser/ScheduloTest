@@ -20,13 +20,15 @@
                                IsRunning="True"
                                VerticalOptions="FillAndExpand" 
                                HorizontalOptions="Center"
-                               Color="White"/>
+                               Color="Black"/>
 
             <Label Text="An error occured Downloading the picture"
                    VerticalOptions="CenterAndExpand" 
                    HorizontalOptions="Center"
                    FontSize="Large"
                    TextColor="Red"
+                   LineBreakMode="WordWrap"
+                   HorizontalTextAlignment="Center"
                    IsVisible="{Binding Source={x:Reference ImageView}, Path=IsFailed}"/>
             
             <Button VerticalOptions="End" 

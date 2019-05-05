@@ -3,7 +3,8 @@
                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                         x:Class="ScheduloTestResolution.Views.ViewMainMenu"
                         xmlns:local="clr-namespace:ScheduloTestResolution.Views"
-                        Title="Main Menu">
+                        Title="Main Menu"
+                        Style="{x:StaticResource MainPage}">
     <ScrollView>
         <Grid VerticalOptions="CenterAndExpand">
             <Grid.ColumnDefinitions>

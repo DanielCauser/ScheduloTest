@@ -10,12 +10,14 @@
                 <Setter Property="BarTextColor" Value="White"/>
             </Style>
             
-            <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+            <Style TargetType="ContentPage" 
+                   ApplyToDerivedTypes="True"
+                   x:Key="MainPage">
                 <Setter Property="BackgroundColor" Value="#007EE5" />
             </Style>
             
             <Style TargetType="Label">
-                <Setter Property="TextColor" Value="White" />
+                <Setter Property="TextColor" Value="Black" />
             </Style>
             
             <Style TargetType="Button" x:Key="ButtonBase">

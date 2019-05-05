@@ -5,21 +5,26 @@
        xmlns:local="clr-namespace:ScheduloTestResolution.Views">
     <ContentPage.Content>
         <StackLayout>
-            <Entry Margin="10" Placeholder="Type to filter..." />
-            <ListView Margin="10" HasUnevenRows="true" ItemsSource="{Binding Posts}" SelectedItem="{Binding SelectedItem}">
+            <Entry Margin="10" 
+                   Placeholder="Type to filter..."
+                   Text="{Binding SearchText}"/>
+            <ListView Margin="10" 
+                      HasUnevenRows="true" 
+                      ItemsSource="{Binding Posts}" 
+                      SelectedItem="{Binding SelectedItem}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-
                             <StackLayout Padding="10" Spacing="10">
                                 <Label FontSize="12" Text="{Binding Title}" />
                                 <Label FontSize="10" Text="{Binding Body}" />
                             </StackLayout>
-
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            
+            
         </StackLayout>
     </ContentPage.Content>
 </local:ViewForumXaml>
